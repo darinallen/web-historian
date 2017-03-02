@@ -1,9 +1,8 @@
 var app = {
 
   send: function(site) {
-
     $.ajax({
-      url: '',   // need app server URL,
+      url: '',// app server URL,
       type: 'POST',
       data: JSON.stringify(site),
       success: function (data) {
@@ -17,9 +16,9 @@ var app = {
         console.error('Archive: Failed to send URL', error);
       }
     });
-  },
-
-  fetch: function(site) {
-
   }
+
+  // fetch: function(site) {
+  //
+  // }
 };
