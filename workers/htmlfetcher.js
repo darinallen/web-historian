@@ -2,7 +2,7 @@
 // that are waiting.
 var archive = require('../helpers/archive-helpers');
 
-module.exports.htmlfetcher = function() {
+exports.htmlfetcher = function() {
   archive.downloadUrls(archive.sitesArray);
 };
 // this function can be created using archive-helper functions, including readListsofUrls and downloadUrls - probably not much new code needed

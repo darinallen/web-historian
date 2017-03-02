@@ -27,7 +27,7 @@ exports.initialize = function(pathsObj) {
 // The following function names are provided to you to suggest how you might
 // modularize your code. Keep it clean!
 
-exports.sitesArray = fs.readFileSync(exports.paths.list, 'utf8');
+exports.sitesArray = ['http://google.com'];
 
 console.log('exports.sitesArray', exports.sitesArray);
 
@@ -58,7 +58,7 @@ exports.isUrlInList = function(url, callback) {
 exports.addUrlToList = function(url, callback) {
   console.log('invoked addUrlToList');
   exports.sitesArray.push(url);
-  fs.writeFileSync(exports.paths.list, JSON.stringify(exports.sitesArray));
+  fs.writeFileSync(exports.paths.list, 'utf8', exports.sitesArray.join('/n'));
   //callback? for later...
   //fs.write to sites.txt, execute call back if required
 };
@@ -73,6 +73,7 @@ exports.downloadUrls = function(urls) {
   //use isUrlArchived to check, if not, GET request to site and collect with .on(data, callback) to store
   //fs.writeFile to in paths.archivedSites + url for future reference
   console.log('invoked downloadUrls');
+  console.log('url array is type of: ', typeof (JSON.parse(urls)));
   urls.forEach(function(url) {
     if(!isUrlArchived(url)) {
       // GET request to url

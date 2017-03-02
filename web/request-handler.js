@@ -13,7 +13,7 @@ exports.handleRequest = function (req, res) {
     // if input URL is in sites.txt object, return sitesObj[urlKey]
     // if input URL is not in sites.text object, give them a 404
 
-    htmlfetcher();
+    htmlfetcher.htmlfetcher();
     res.writeHead('200', httpHelpers.headers);
     var urlList = archive.readListOfUrls();
     console.log('urlList: ', urlList);
